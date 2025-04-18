@@ -1,0 +1,343 @@
+/* Navigation Styles */
+.main-nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    position: relative;
+}
+
+.nav-logo h1 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.nav-logo h1.final-logo {
+    opacity: 0;
+}
+
+.nav-logo h1.final-logo::before {
+    content: '';
+}
+
+.final-logo {
+    opacity: 0;
+}
+
+.final-logo::before {
+    content: 'RTS';
+    opacity: 0;
+    animation: showFinalLogo 0.5s ease-out forwards;
+    animation-delay: 5.8s;
+    display: block;
+    transform-origin: left center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition-speed);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition-speed);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Home Content Styles */
+.home-content {
+    padding-top: calc(var(--nav-height) + 20px);
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+        url('../images/bg-texture.jpg') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#welcomeMessage {
+    color: var(--accent-color);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.logo-animation {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.logo-sequence {
+    position: relative;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.full-name {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--accent-color);
+    opacity: 0;
+    animation: revealFullName 0.5s ease-out forwards;
+    animation-delay: 3s;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.main-logo {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--secondary-color);
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    position: absolute;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: center center;
+}
+
+.main-logo .letter {
+    opacity: 0;
+    position: relative;
+    display: inline-block;
+    transform-origin: center center;
+}
+
+.main-logo .letter.R {
+    animation: transformToLogo 0.5s ease forwards;
+    animation-delay: 4.2s;
+}
+
+.main-logo .letter.T {
+    animation: transformToLogo 0.5s ease forwards;
+    animation-delay: 4.4s;
+}
+
+.main-logo .letter.S {
+    animation: transformToLogo 0.5s ease forwards;
+    animation-delay: 4.6s;
+}
+
+.main-logo.final-position {
+    position: fixed;
+    top: 1rem;
+    left: 2rem;
+    transform: scale(0.5);
+    z-index: 1001;
+}
+
+.main-slogan {
+    color: var(--accent-color);
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 5s;
+}
+
+.intro-text {
+    color: var(--text-color);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.6;
+    margin-top: 2rem;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation Keyframes */
+@keyframes transformToLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(50px);
+        color: var(--accent-color);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateY(25px);
+        color: var(--accent-color);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        color: var(--secondary-color);
+    }
+}
+
+@keyframes revealFullName {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpWord {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Update the moveToTopLeft animation */
+@keyframes moveToTopLeft {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(0.5) translate(calc(-50vw + 2rem), -200px);
+        position: fixed;
+        top: 1rem;
+        left: 2rem;
+    }
+}
+
+@keyframes showFinalLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-content {
+        padding-top: calc(var(--nav-height) + 60px);
+    }
+
+    .welcome-section {
+        padding: 1rem;
+    }
+
+    .logo-sequence {
+        height: 150px;
+    }
+
+    .full-name {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .main-logo {
+        gap: 0.2rem;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: 1rem 0.5rem;
+    }
+}
+
+/* For landscape orientation on mobile */
+@media (max-height: 480px) and (orientation: landscape) {
+    .home-content {
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .welcome-section {
+        margin: 2rem auto;
+    }
+}
