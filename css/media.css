@@ -1,0 +1,255 @@
+/* Media Page Styles */
+.media-content {
+    padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+        url('../images/bg-texture.jpg') center/cover;
+}
+
+.media-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Music Section */
+.music-section,
+.videos-section,
+.photos-section {
+    margin-bottom: 4rem;
+}
+
+.music-section h2,
+.videos-section h2,
+.photos-section h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.music-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.music-card:hover {
+    transform: translateY(-5px);
+}
+
+.music-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.artist-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+}
+
+.music-info h3 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.track-title {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.music-player {
+    padding: 1.5rem;
+    background: rgba(255, 0, 0, 0.1);
+    text-align: center;
+}
+
+.player-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-placeholder i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.listen-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.listen-btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Videos Section */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.video-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    background: rgba(255, 0, 0, 0.1);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.video-thumbnail i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+}
+
+.video-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.video-info h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Photo Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.photo-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.photo-placeholder i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .media-content {
+        padding: calc(var(--nav-height) + 1rem) 1rem 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .music-section h2,
+    .videos-section h2,
+    .photos-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .music-grid,
+    .videos-grid,
+    .gallery-grid {
+        gap: 1rem;
+    }
+
+    .artist-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .music-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .video-thumbnail {
+        height: 160px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.music-card,
+.video-card,
+.gallery-item {
+    animation: fadeIn 0.6s ease-out forwards;
+}
